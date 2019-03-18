@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 let ProductSchema = new Schema({
     name:  String, 
-    price:  Number
+    price:  Number,
+    productImage: String //mesh nrml nsameha kima samitha ghady product image
 });
 
 
