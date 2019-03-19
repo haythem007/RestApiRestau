@@ -32,7 +32,7 @@ exports.product_create =  function (req, res) {
 exports.product_details = function (req, res) {
     Product.findById(req.params.id, function (err, product) {
         if (err) {
-            return next(err);
+            return res.status(500).json(err);
         }
         res.status(200).json(product)
     })

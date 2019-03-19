@@ -4,7 +4,7 @@ const Mongoose = require("mongoose");
 const product = require('./routes/product.route'); // Imports routes for the products
 const app = express();
 const http = require("http");
-
+var processImage = require('express-processimage');
 
 Mongoose.connect("mongodb://127.0.0.1:27017/StockRes",{ useNewUrlParser: true }, function(err, db) {
 	if(err){
@@ -23,7 +23,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/products', product);
 
+
+
 app.use('/uploads',express.static(__dirname+'/uploads'))
+app.use(express.static('public'));
 
 const port = process.env.PORT || 9090;
 const server = http.createServer(app);
