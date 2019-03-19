@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Mongoose = require("mongoose");
 const product = require('./routes/product.route'); // Imports routes for the products
+const orders = require('./routes/orders'); // Imports routes for the products
 const app = express();
 const http = require("http");
 var processImage = require('express-processimage');
@@ -22,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.use('/products', product);
-
+app.use('/orders', orders);
 
 
 app.use('/uploads',express.static(__dirname+'/uploads'))

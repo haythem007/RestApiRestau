@@ -40,11 +40,10 @@ exports.product_details = function (req, res) {
 
 
 exports.product_all = function (req, res) {
-    Product.find(function (err, product) {
-        if (err) {
-            return res.status(500).json(err);
-        }
-        res.status(200).json(product)
+    Product.find().exec().then(products=>{
+        res.status(200).json(products);
+    }).catch(err=>{
+        res.status(404).json(err);
     })
 };
 
