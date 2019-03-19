@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/products', product);
 
+app.use('/uploads',express.static(__dirname+'/uploads'))
 
 const port = process.env.PORT || 9090;
 const server = http.createServer(app);
